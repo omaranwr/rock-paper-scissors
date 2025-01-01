@@ -6,6 +6,11 @@
     <title>Document</title>
     <script>
         console.log("This is RPS.");
+        console.log(`Here are the options:
+    Rock: 0
+    Paper: 1
+    Scissors: 2`);
+    console.log("Just type 'playAgain()' and put your choice between the brackets")
         let choiceArr = ["Rock", "Paper", "Scissors"];
         function calcWinner(choice, comp) {
             if(choice === 0 && comp === 2) {
@@ -17,7 +22,7 @@
             return choice === comp ? -1 : choice > comp;
         }
         function playAgain(choice) {
-            if (choice > 2 || choice < 0) {
+            if (choiceArr[choice] == undefined) {
                 console.log("Invalid choice.");
                 return ;
             }
