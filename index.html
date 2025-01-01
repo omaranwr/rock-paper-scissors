@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("This is RPS.");
+        let choiceArr = ["Rock", "Paper", "Scissors"];
+        function calcWinner(choice, comp) {
+            if(choice === 0 && comp === 2) {
+                return true;
+            }
+            if(choice === 2 && comp === 0) {
+                return false;
+            }
+            return choice === comp ? -1 : choice > comp;
+        }
+        function playAgain(choice) {
+            if (choice > 2 || choice < 0) {
+                console.log("Invalid choice.");
+                return ;
+            }
+            let comp =  Math.floor(Math.random() * 3);
+
+            let choiceStr = choiceArr[choice];
+            console.log("You chose " + choiceStr + ".");
+
+            let compStr = choiceArr[comp];
+            console.log("The computer chose " + compStr + ".");
+
+            let winner = calcWinner(choice, comp);
+
+            if(winner === -1) {
+                console.log("It's a draw!");
+                return ;
+            } else {
+                if(winner) {
+                    console.log(choiceStr + " beats " + compStr + ", you win!")
+                } else {
+                    console.log(choiceStr + " loses to " + compStr + ", you lose!")
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
